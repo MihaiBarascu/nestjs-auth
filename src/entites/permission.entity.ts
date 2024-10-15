@@ -1,5 +1,5 @@
-// src/entities/permission.entity.ts
 import {
+  //
   Entity,
   PrimaryGeneratedColumn,
   Column,
@@ -11,7 +11,14 @@ import { Role } from './role.entity';
 
 @Entity('permissions')
 export class Permission {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column({
+    type: 'uuid',
+    generated: 'uuid',
+    unique: true,
+  })
   uuid: string;
 
   @Column({ unique: true })

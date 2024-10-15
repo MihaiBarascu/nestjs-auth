@@ -1,4 +1,3 @@
-// src/entities/role.entity.ts
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -13,10 +12,17 @@ import { Permission } from './permission.entity';
 
 @Entity('roles')
 export class Role {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column({
+    type: 'uuid',
+    generated: 'uuid',
+    unique: true,
+  })
   uuid: string;
 
-  @Column({ unique: true })
+  @Column({ type: 'varchar' })
   name: string;
 
   @CreateDateColumn()
